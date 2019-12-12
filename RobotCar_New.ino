@@ -35,6 +35,7 @@ const int GPin = A4;
 const int BPin = A5; 
 int RGBVal = 0;
 int automatic = 0;
+int offset = -3;                                               // set offset for wheel allignment
 
 RF24 radio(9, 10);                                            // defines the object to control NRF24L01
 byte addresses[][6] = {"007","001"};                                  // defines communication address which should correspond to remote control
@@ -96,7 +97,7 @@ void loop() {
       }
       else
         {
-          drive(95, FORWARD, 128);
+          drive(90+offset, FORWARD, 128);
         }
  
  }
